@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>映像の盛り上がり体験_説明</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+html,body{
+	margin:0;
+}
+
+.body {
+        font-size: 20px;
+    }
+
+
+#koushin{
+	display: block;
+	width:80px;height:80px;
+	margin: auto;
+  cursor:pointer;
+  z-index:1;
+}
+
+</style>
+<script>
+var videoElem;
+
+onload = function(){
+	sizeChosei();
+	$(window).resize(function(){
+		sizeChosei();
+	});
+	
+	videoElem = document.getElementById('movs');
+	
+	document.addEventListener('click', clickDisplayAlert);
+	
+	setInterval(loop, 42);
+}
+
+function sizeChosei(){
+	$("html").css({"font-size":(window.innerWidth/100)+"px"});
+}
+
+function loop(){
+	//console.log(videoElem.currentTime);
+}
+
+
+</script>
+</head>
+<body>
+  <h1>はじめに</h1>
+　<ol class="body">
+　　<li>トンネルから外れないようにゴールまでたどり着くようにする。</li>
+　　<li>「←」「→」の２つのボタンをダブルクリックして、正しい分岐を選ぶ。</li>
+　　<li>正しい分岐を選ぶためにはダブルクリックするタイミングが重要。分岐先の様子が見えた直後、一定の間速度が落ちる。この間にいずれかをダブルクリックすると行先が変更される。</li>
+　　<li>初めからやり直すには、「やり直す」ボタンを押す。なお、映像は自動再生のため注意。</li>
+　</ol>
+<input id="start" type="button"  value="スタート" onclick="location.href='https://miwan-07.github.io'">
+</body>
+</html>
