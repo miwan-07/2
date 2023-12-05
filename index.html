@@ -2,33 +2,90 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>映像の盛り上がり体験_説明</title>
+<title></title>
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="keywords" content="">
 <meta name="description" content="">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
 <style type="text/css">
 html,body{
 	margin:0;
 }
 
-.body {
-        font-size: 20px;
-    }
 
 
-#start{
-	display: block;
-	width:80px;height:80px;
-	margin: auto;
-  cursor:pointer;
-  z-index:1;
+
+.hako{
+   position: relative;
+   display: flex;
+  left: 0;
+  width: 100%;
+
 }
+
+
+
+p.setumei{
+    font-size: 20pt; 
+}
+
+
+
+.hako2{
+   position: absolute;
+   display: flex;
+   height: 100%;
+}
+
+.hako4{
+position: relative;
+width: 50%;
+}
+
+.movs{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    height: 200px;
+}
+
+
+.d{
+    font-size: 50px;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+}
+
+
+.hako3{
+}
+
+
+img{
+  position: relative;
+  width: 100%;
+}
+
+
+.myBarChart{
+  position: relative;
+    width: 90%;
+}
+
+
+
+
+
 
 </style>
 <script>
+
 var videoElem;
 
 onload = function(){
@@ -39,32 +96,267 @@ onload = function(){
 	
 	videoElem = document.getElementById('movs');
 	
-	document.addEventListener('click', clickDisplayAlert);
-	
-	setInterval(loop, 42);
 }
+
 
 function sizeChosei(){
 	$("html").css({"font-size":(window.innerWidth/100)+"px"});
 }
 
-function loop(){
-	//console.log(videoElem.currentTime);
-}
-
-
 </script>
 </head>
 <body>
-  <h1>Ver.4</h1>
-  <h2>遊び方</h2>
-　<ol class="body">
-　　<li>トンネルから外れないようにゴールまでたどり着くようにする。</li>
-　　<li>「←」「→」の２つのボタンをダブルクリックして、正しい分岐を選ぶ。両手を使って画面を直接タッチできる端末が良い。</li>
-　　<li>正しい分岐を選ぶためにはダブルクリックするタイミングが重要。分岐先の様子が見えた直後、一定の間速度が落ちる。この間にいずれかをダブルクリックすると行先が変更される。</li>
-　　<li>始める、やり直すには、「スタート」ボタンを押す。なお、映像は自動再生のため注意。</li>
-　</ol>
-<input id="start" type="button"  value="スタート" onclick="location.href='https://miwan-07.github.io'">
+
+<div class="hako2">
+<div class="hako4">
+<input class="d" type="button" value="　　　　▶" onclick="clickDisplay()">
+<video class="movs" id="movs" src='movs/esa3.mp4' autoplay muted></video>
+
+</div>
+<div class="hako3">
+ <img class = "img" id ="img" src='movs/nazo.JPG'>
+ <div  class="myBarChart">
+  <canvas id="myBarChart"></canvas>
+ </div>
+</div>
+</div>
+    
+   
+
+    <script>
+
+
+var a; 
+var sum1 = 0;
+var sum2 = 0;
+var sum3 = 0;
+
+ 
+var ctx = document.getElementById("myBarChart");
+  var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['犬'],
+      datasets: [
+        {
+          label: '大きさ',
+          data: [sum1],
+          backgroundColor: "rgba(255,0,0,1)"
+        },{
+          label: '毛の長さ',
+          data: [sum2],
+          backgroundColor: "rgba(0,0,255,1)"
+        }
+        //,{
+          //label: '緑の四角',
+          //data: [sum3],
+          //backgroundColor: "rgba(4,151,29,1)"
+        //},
+      ]
+    },
+    options: {
+        animation: {
+        duration: 0
+    },
+      title: {
+        display: true,
+        text: ''
+      },
+      scales: {
+
+        yAxes: [{
+          ticks: {
+            suggestedMax: 28,
+            suggestedMin: -28,
+            stepSize: 14,
+            callback: function(value, index, values){
+              return  value +  ''
+            }
+          }
+        }]
+      },
+    }
+  }); 
+
+
+function clickDisplay() {
+
+if (0 <= videoElem.currentTime && videoElem.currentTime <= 8 ){
+
+ sum1 += 1 ;
+ sum2 += 1 ;
+
+
+    
+}
+
+ else if (8 < videoElem.currentTime && videoElem.currentTime <= 16) {
+ sum1 += 1 ;
+ sum2 += 0 ;
+
+ }
+
+else if (16 < videoElem.currentTime && videoElem.currentTime <= 24) {
+ sum1 += 0 ;
+ sum2 += 1 ;
+
+ }
+
+
+ else if (24 < videoElem.currentTime && videoElem.currentTime <= 32) {
+ sum1 -= 1 ;
+ sum2 += 0 ;
+
+}
+
+
+else if (32 < videoElem.currentTime && videoElem.currentTime <= 40) {
+ sum1 += 0 ;
+ sum2 -= 1 ;
+
+}
+
+
+else if (40 < videoElem.currentTime && videoElem.currentTime <= 48) {
+ sum1 += 1 ;
+ sum2 -= 1 ;
+
+}
+
+
+else if (48 < videoElem.currentTime && videoElem.currentTime <= 56) {
+ sum1 -= 1 ;
+ sum2 += 1 ;
+}
+
+else if (56 < videoElem.currentTime && videoElem.currentTime <= 64) {
+ sum1 += 1 ;
+ sum2 += 1 ;
+
+}
+
+else if (64 < videoElem.currentTime && videoElem.currentTime <= 72) {
+ sum1 -= 1 ;
+ sum2 -= 1 ;
+
+}
+
+
+ //console.log("sum: "+ sum1);
+
+$(".score1").text(String(sum1))
+$(".score2").text(String(sum2))
+$(".score3").text(String(sum3))
+
+
+
+
+if(sum1 < -28){
+  sum1 = -28
+}
+
+if(42 < sum1){
+  sum1 = 42
+}
+
+if(sum2 < -28){
+  sum2 = -28
+}
+
+if(28 < sum2){
+  sum2 = 28
+}
+
+
+
+//console.log("movs/" + String(sum1) + "-" + String(sum2)  + ".png")
+//document.getElementById("img").src  = "movs/" + String(sum1) + "-" + String(sum2)  + ".png"
+
+
+if (sum1 < -14 ){
+    if(sum2 <0){
+      document.getElementById("img").src  = "movs/-1-1.JPG";
+    }
+    else if(0 <= sum2){
+      document.getElementById("img").src  = "movs/-11.JPG";
+    }
+}
+
+else if (-14 <= sum1 && sum1 < 14){
+  if(sum1 <0){
+  document.getElementById("img").src  = "movs/1-1.JPG";
+  }
+  if(0 <= sum2){
+  document.getElementById("img").src  = "movs/11.JPG";
+  }
+}
+
+else if ( 14 <= sum1){
+    if(sum2 < 0){
+      document.getElementById("img").src  = "movs/2-1.JPG";
+    }
+    
+    else if(0 <= sum2){
+      document.getElementById("img").src  = "movs/21.JPG";
+    }
+
+}
+
+
+
+
+
+var ctx = document.getElementById("myBarChart");
+  var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['犬'],
+      datasets: [
+        {
+          label: '大きさ',
+          data: [sum1],
+          backgroundColor: "rgba(255,0,0,1)"
+        },{
+          label: '毛の長さ',
+          data: [sum2],
+          backgroundColor: "rgba(0,0,255,1)"
+        }
+        //,{
+          //label: '緑の四角',
+          //data: [sum3],
+          //backgroundColor: "rgba(4,151,29,1)"
+        //},
+      ]
+    },
+    options: {
+        animation: {
+        duration: 0
+    },
+      title: {
+        display: true,
+        text: ''
+      },
+      scales: {
+
+        yAxes: [{
+          ticks: {
+            suggestedMax: 28,
+            suggestedMin: -28,
+            stepSize: 14,
+            callback: function(value, index, values){
+              return  value +  ''
+            }
+          }
+        }]
+      },
+    }
+  }); 
+
+}
+
+
+    </script>
+
 
 </body>
 </html>
