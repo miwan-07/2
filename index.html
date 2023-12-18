@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>解説ページ</title>
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -10,353 +10,418 @@
 <meta name="description" content="">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
 <style type="text/css">
+
 html,body{
-	margin:0;
-}
-
-
-
-
-.hako{
-   position: relative;
-   display: flex;
-  left: 0;
-  width: 100%;
-
-}
-
-
-
-p.setumei{
-    font-size: 20pt; 
-}
-
-
-
-.hako2{
-   position: absolute;
-   display: flex;
+	margin: 0;
+  background-image: url("movs/back_color9.JPG");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position:center ;
    height: 100%;
+   background-attachment:fixed ;
 }
 
-.hako4{
-position: relative;
-width: 50%;
+.dodai{
+	display: none;
 }
 
-.movs{
-    position: absolute;
-    top: 50px;
-    left: 20px;
-    height: 200px;
+
+
+
+.zukei{
+	position: absolute;
+	width: 100%;
+}
+
+.setumei{
+	position: relative;
+	width: 100%;
+	opacity : 20%;
+}
+
+
+.a{
+	position: relative;
+}
+
+.title{
+	position: absolute;
+	left: 18%;
+	top: 18%;
+	color: #FFF;
+	font-size: 500%;
+	font-family: serif;
+	text-shadow: 2px  2px 5px #000000;
+}
+
+.bun{
+	position: absolute;
+font-size: 135%;
+font-family: serif;
+color: #FFF;
+z-index: 7;
+top: 44%;
+left: 21%;
+text-shadow: 2px  2px 5px #000000;
+}
+
+
+
+
+
+.b{
+	position: relative;
+}
+
+
+#bb{
+	opacity: 0;
+	transition:all 3s;
+	width: 100%;
+	top: 0;
+}
+
+#bb.scrollin {
+  opacity : 100%;
+}
+
+.c{
+	position: relative;
+}
+
+#cc{
+	opacity: 0;
+	transition:all 3s;
+	width: 100%;
+	top: 0;
+}
+
+#cc.scrollin {
+  opacity : 100%;
 }
 
 
 .d{
-    font-size: 50px;
-    position: absolute;
-    width: 300px;
-    height: 300px;
+	position: relative;
+}
+
+#dd{
+	opacity: 0;
+	transition:all 3s;
+	width: 100%;
+	top: 0;
+}
+
+#dd.scrollin {
+  opacity : 100%;
 }
 
 
-.hako3{
+.e{
+	position: relative;
+}
+
+#ee{
+	opacity: 0;
+	transition:all 3s;
+	width: 100%;
+	top: 0;
+}
+
+#ee.scrollin {
+  opacity : 100%;
 }
 
 
-img{
-  position: relative;
-  width: 100%;
+.f{
+	position: relative;
+}
+
+#ff{
+	opacity: 0;
+	transition:all 3s;
+	width: 100%;
+	top: 0;
+}
+
+#ff.scrollin {
+  opacity : 100%;
 }
 
 
-.myBarChart{
-  position: relative;
-    width: 90%;
+.number{
+	position: absolute;
+	left: 40.5%;
+	top: 10%;
+	color: #FFF;
+	font-size: 500%;
+	font-family: serif;
+	text-shadow: 2px  2px 5px #000000;
+}
+
+.kotoba{
+	font-size: 75%;
+	}
+
+.bun1{
+	position: absolute;
+font-size: 135%;
+font-family: serif;
+color: #FFF;
+z-index: 7;
+top: 32%;
+left: 35%;
+width: 50%;
+text-shadow: 2px  2px 5px #000000;
+}
+
+
+.movs{
+	position: absolute;
+	width: 50%;
+	left: 35%;
+	top: 50%;
+}
+
+
+.bun2{
+	position: absolute;
+font-size: 135%;
+font-family: serif;
+color: #FFF;
+z-index: 7;
+top: 87%;
+left: 35%;
+width: 50%;
+text-shadow: 2px  2px 5px #000000;
+}
+
+.number5{
+	position: absolute;
+	left: 40.5%;
+	top: 4.5%;
+	color: #FFF;
+	font-size: 500%;
+	font-family: serif;
+	text-shadow: 2px  2px 5px #000000;
+}
+
+.bun1-5{
+		position: absolute;
+font-size: 135%;
+font-family: serif;
+color: #FFF;
+z-index: 7;
+top: 19%;
+left: 35%;
+width: 50%;
+text-shadow: 2px  2px 5px #000000;
+}
+
+.movs5{
+	position: absolute;
+	width: 50%;
+	left: 35%;
+	top: 29%;
+}
+
+.bun2-5{
+		position: absolute;
+font-size: 135%;
+font-family: serif;
+color: #FFF;
+z-index: 7;
+top: 53%;
+left: 35%;
+width: 50%;
+text-shadow: 2px  2px 5px #000000;
 }
 
 
 
+.button{
+   position: fixed;
+    /*コレ*/background: transparent;
+    border: 4px double #FFF;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 18px;
+   
+    font-family:serif;
+    text-shadow: 2px  2px 5px #000000;
+     margin: 2%;
+     transition: all .3s;
+     bottom: 0;
+     left: 0;
+}
 
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
 
 
 </style>
 <script>
-
-var videoElem;
-
 onload = function(){
 	sizeChosei();
 	$(window).resize(function(){
 		sizeChosei();
 	});
-	
-	videoElem = document.getElementById('movs');
-	
 }
-
-
 function sizeChosei(){
 	$("html").css({"font-size":(window.innerWidth/100)+"px"});
 }
+
+$(window).on("load", function() {
+    $('.dodai').fadeIn(2000); 
+});
+
+
+$(function(){
+  $(window).scroll(function (){
+    $('#bb').each(function(){
+      var elementTop = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > elementTop - windowHeight - 1000){
+        $(this).addClass('scrollin');
+      }
+    });
+  });
+});
+
+
+$(function(){
+  $(window).scroll(function (){
+    $('#cc').each(function(){
+      var elementTop = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > elementTop - windowHeight - 1000){
+        $(this).addClass('scrollin');
+      }
+    });
+  });
+});
+
+
+$(function(){
+  $(window).scroll(function (){
+    $('#dd').each(function(){
+      var elementTop = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > elementTop - windowHeight - 1000){
+        $(this).addClass('scrollin');
+      }
+    });
+  });
+});
+
+
+$(function(){
+  $(window).scroll(function (){
+    $('#ee').each(function(){
+      var elementTop = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > elementTop - windowHeight - 1000){
+        $(this).addClass('scrollin');
+      }
+    });
+  });
+});
+
+
+$(function(){
+  $(window).scroll(function (){
+    $('#ff').each(function(){
+      var elementTop = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > elementTop - windowHeight - 1900){
+        $(this).addClass('scrollin');
+      }
+    });
+  });
+});
 
 </script>
 </head>
 <body>
 
-<div class="hako2">
-<div class="hako4">
-<input class="d" type="button" value="　　　　▶" onclick="clickDisplay()">
-<video class="movs" id="movs" src='movs/esa3.mp4' autoplay muted></video>
+<div class="dodai">
+<div class="zukei">
+
+<div class="a" id ="a">
+<img class="setumei" id ="setumei" src="movs/0.PNG">
+<p class="title">「盛り上がり」体験のために</p>
+<p class="bun">映像における「盛り上がり」の体験装置を作るにあたり、「盛り上がらせる」映像と</br>それを見る人の意識の関係、「見せる」と「気づく」の関係に注目した。</p>
+</div>
+
+
+<div img class="b" id ="b">
+<img class="setumei" id ="setumei1" src="movs/1.PNG">
+<div id="bb">
+<p class="number">1. <span class="kotoba">状況を「見せる」</span></p>
+<p class="bun1">　映像の盛り上がりのためには、見る相手を映像に入り込ませる必要がある。</br>その実現のために、見る相手が映像内のキャラクターや視点に移入する、すなわち当事者意識を持たせる。その上で自分の視点・思考・感情を宿す先の状況・環境を、理解・把握させる必要があると考えた。</br></p>
+<video class="movs" src="movs/setumei1.mp4" webkit-playsinline playsinline controls></video>
+<p class="bun2">　ここでは、「移動における問題を切り抜けゴールまでたどり着く」という前提を与え、ユーザーがどのような環境の中どのように移動しているかを把握させるようにしている。</p>
+</div>
+</div>
+
+<div img class="c" id ="c">
+<img class="setumei" id ="setumei2" src="movs/1.PNG">
+<div id="cc">
+<p class="number">2. <span class="kotoba">変化を「見せる」</span></p>
+<p class="bun1">　１にて状況を把握させた上で、状況に何らかの変化を与える。</br>その目的とは、映像に” 流れ” を入れ、見る
+相手がその流れを読もう、変化についていこうとする緊張状態を生み出すことである。</p>
+<video class="movs" src="movs/setumei2.mp4" webkit-playsinline playsinline controls></video>
+<p class="bun2">　ここでは、一定状態の移動状況に対し何らかの変化を与えている。特に、緊張状態を作りだすために、あえてユーザーがついていきにくい変化・流れを加えている。</p>
+</div>
 
 </div>
-<div class="hako3">
- <img class = "img" id ="img" src='movs/nazo.JPG'>
- <div  class="myBarChart">
-  <canvas id="myBarChart"></canvas>
- </div>
+<div img class="d" id ="d">
+<img class="setumei" id ="setumei3" src="movs/1.PNG">
+<div id="dd">
+<p class="number">3. <span class="kotoba">答えを「見せる」</span></p>
+<p class="bun1">　２での変化に続け、見る人の心理を動かす何らかの” 問題” を与える。</br>問題を迫らせ緊張を高まらせた後、その問題の答えに直結する情報、解決の確定演出を「見せる」。このことで、映像を見る相手がその流れに乗ることを可能する。そして、解決の瞬間に向けて緊張や期待を高めていく。</p>
+<video class="movs" src="movs/setumei3.mp4" webkit-playsinline playsinline controls></video>
+<p class="bun2">　ここでは、選ぶべき分岐の選択に「気づく」猶予を持たせ、かつ時間を進ませることで、緊張感ある確定演出を表現している。</p>
 </div>
+
 </div>
-    
-   
+<div img class="e" id ="e">
+<img class="setumei" id ="setumei4" src="movs/1.PNG">
+<div id="ee">
+<p class="number">4. <span class="kotoba">答えを実現させる</span></p>
+<p class="bun1">3 での事前の確定演出により、見る相手の脳内に、まだ見ぬ解決の瞬間を描かせる。この上で、その「待ちに待った」実現の瞬間をオーバーに心理描写を加えて ) 実現させ、見る相手に爽快感を与え、「緊張」からの「解放」の意識を持たせる。</p>
+<video class="movs" src="movs/setumei4.mp4" webkit-playsinline playsinline controls></video>
+<p class="bun2">　ここでは、3にて移動速度を落とした状態から、２次曲線的に加速し正しい分岐に進んでいくという、勢いある演出を取り入れている。</p>
+</div>
 
-    <script>
+</div>
+<div img class="f" id ="f">
+<img class="setumei" id ="setumei5" src="movs/5.PNG">
+<div id="ff">
+<p class="number5">5. <span class="kotoba">終点を与える</span></p>
+<p class="bun1-5">　盛り上がりとは、意識の中での相対的な変化によるものだと考えた。１～４までの「緊張」と「解放」の流れの収まる執着点を用意することで、４で映像の流れに乗った状態にいる『見る人の意識』の収まりを狙っている。</p>
+<video class="movs5" src="movs/setumei5.mp4" webkit-playsinline playsinline controls></video>
+<p class="bun2-5">　ここでは、初期状態と似たような環境・速度状態に戻し、次の分岐選択や、盛り上がりの遷移がスムーズに行われるようにしている。</p>
+</div>
 
+</div>
 
-var a; 
-var sum1 = 0;
-var sum2 = 0;
-var sum3 = 0;
-
- 
-var ctx = document.getElementById("myBarChart");
-  var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['犬'],
-      datasets: [
-        {
-          label: '大きさ',
-          data: [sum1],
-          backgroundColor: "rgba(255,0,0,1)"
-        },{
-          label: '毛の長さ',
-          data: [sum2],
-          backgroundColor: "rgba(0,0,255,1)"
-        }
-        //,{
-          //label: '緑の四角',
-          //data: [sum3],
-          //backgroundColor: "rgba(4,151,29,1)"
-        //},
-      ]
-    },
-    options: {
-        animation: {
-        duration: 0
-    },
-      title: {
-        display: true,
-        text: ''
-      },
-      scales: {
-
-        yAxes: [{
-          ticks: {
-            suggestedMax: 28,
-            suggestedMin: -28,
-            stepSize: 14,
-            callback: function(value, index, values){
-              return  value +  ''
-            }
-          }
-        }]
-      },
-    }
-  }); 
+</div>
 
 
-function clickDisplay() {
+<input id="button" class="button" type="button"  value="戻る" onclick="location.href='file:///C:/xampp/htdocs/moriagari/index2.html'">
 
-if (0 <= videoElem.currentTime && videoElem.currentTime <= 8 ){
-
- sum1 += 1 ;
- sum2 += 1 ;
-
-
-    
-}
-
- else if (8 < videoElem.currentTime && videoElem.currentTime <= 16) {
- sum1 += 1 ;
- sum2 += 0 ;
-
- }
-
-else if (16 < videoElem.currentTime && videoElem.currentTime <= 24) {
- sum1 += 0 ;
- sum2 += 1 ;
-
- }
-
-
- else if (24 < videoElem.currentTime && videoElem.currentTime <= 32) {
- sum1 -= 1 ;
- sum2 += 0 ;
-
-}
-
-
-else if (32 < videoElem.currentTime && videoElem.currentTime <= 40) {
- sum1 += 0 ;
- sum2 -= 1 ;
-
-}
-
-
-else if (40 < videoElem.currentTime && videoElem.currentTime <= 48) {
- sum1 += 1 ;
- sum2 -= 1 ;
-
-}
-
-
-else if (48 < videoElem.currentTime && videoElem.currentTime <= 56) {
- sum1 -= 1 ;
- sum2 += 1 ;
-}
-
-else if (56 < videoElem.currentTime && videoElem.currentTime <= 64) {
- sum1 += 1 ;
- sum2 += 1 ;
-
-}
-
-else if (64 < videoElem.currentTime && videoElem.currentTime <= 72) {
- sum1 -= 1 ;
- sum2 -= 1 ;
-
-}
-
-
- //console.log("sum: "+ sum1);
-
-$(".score1").text(String(sum1))
-$(".score2").text(String(sum2))
-$(".score3").text(String(sum3))
-
-
-
-
-if(sum1 < -28){
-  sum1 = -28
-}
-
-if(28 < sum1){
-  sum1 = 28
-}
-
-if(sum2 < -28){
-  sum2 = -28
-}
-
-if(28 < sum2){
-  sum2 = 28
-}
-
-
-
-//console.log("movs/" + String(sum1) + "-" + String(sum2)  + ".png")
-//document.getElementById("img").src  = "movs/" + String(sum1) + "-" + String(sum2)  + ".png"
-
-
-if (sum1 < -14 ){
-    if(sum2 <0){
-      document.getElementById("img").src  = "movs/-1-1.JPG";
-    }
-    else if(0 <= sum2){
-      document.getElementById("img").src  = "movs/-11.JPG";
-    }
-}
-
-else if (-14 <= sum1 && sum1 < 14){
-  if(sum2 <0){
-  document.getElementById("img").src  = "movs/1-1.JPG";
-  }
-  if(0 <= sum2){
-  document.getElementById("img").src  = "movs/11.JPG";
-  }
-}
-
-else if ( 14 <= sum1){
-    if(sum2 < 0){
-      document.getElementById("img").src  = "movs/2-1.JPG";
-    }
-    
-    else if(0 <= sum2){
-      document.getElementById("img").src  = "movs/21.JPG";
-    }
-
-}
-
-
-
-
-
-var ctx = document.getElementById("myBarChart");
-  var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['犬'],
-      datasets: [
-        {
-          label: '大きさ',
-          data: [sum1],
-          backgroundColor: "rgba(255,0,0,1)"
-        },{
-          label: '毛の長さ',
-          data: [sum2],
-          backgroundColor: "rgba(0,0,255,1)"
-        }
-        //,{
-          //label: '緑の四角',
-          //data: [sum3],
-          //backgroundColor: "rgba(4,151,29,1)"
-        //},
-      ]
-    },
-    options: {
-        animation: {
-        duration: 0
-    },
-      title: {
-        display: true,
-        text: ''
-      },
-      scales: {
-
-        yAxes: [{
-          ticks: {
-            suggestedMax: 28,
-            suggestedMin: -28,
-            stepSize: 14,
-            callback: function(value, index, values){
-              return  value +  ''
-            }
-          }
-        }]
-      },
-    }
-  }); 
-
-}
-
-
-    </script>
-
+</div>
 
 </body>
 </html>
